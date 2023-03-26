@@ -1,0 +1,14 @@
+.register__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.register__form label {
+    margin-top: 12px;
+    margin-bottom: 6px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ccc;
+}

@@ -1,0 +1,16 @@
+.profile__pencil {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.profile__pencil:hover {
+    background: url("../../../images/pencil.svg"), #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 26px;
+    cursor: pointer;
+    opacity: 0.8;
+}

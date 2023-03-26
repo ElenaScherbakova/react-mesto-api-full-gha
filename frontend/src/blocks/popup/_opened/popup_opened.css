@@ -1,0 +1,25 @@
+.popup_opened {
+/*  display: flex;*/
+  visibility: visible;
+  opacity: 1;
+  animation-name: fadein;
+/*  animation-direction: reverse;*/
+  animation-duration: 0.5s;
+
+
+}
+
+
+@keyframes fadein {
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+}
+

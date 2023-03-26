@@ -1,0 +1,7 @@
+.header__container {
+    display: flex;
+    right: 0;
+    position: absolute;
+    align-items: center;
+    gap: 24px;
+}

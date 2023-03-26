@@ -1,0 +1,16 @@
+.popup__case {
+    position: relative;
+    background: #fff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 430px;
+    box-sizing: border-box;
+    max-height: 272px;
+}
+
+
+@media screen and (max-width: 850px) {
+    .popup__case {
+        max-width: 282px;
+    }
+}

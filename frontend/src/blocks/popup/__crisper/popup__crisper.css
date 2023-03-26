@@ -1,0 +1,17 @@
+.popup__crisper {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    width: 430px;
+    box-sizing: border-box;
+    max-height: 181px;
+
+}
+
+
+@media screen and (max-width: 450px) {
+    .popup__crisper {
+        max-width: 282px;
+    }
+}

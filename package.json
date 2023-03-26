@@ -1,0 +1,24 @@
+{
+  "name": "react-mesto-api-full-gha",
+  "version": "1.0.0",
+  "description": "API and UI",
+  "scripts": {
+    "install:all": "cd ./backend && npm i && cd ../frontend && npm i",
+    "start": "concurrently -n Frontend,Backend \"npm run start:ui\" \"npm run start:api\"",
+    "start:ui": "cd frontend && npm start",
+    "start:api": "cd backend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElenaScherbakova/react-mesto-api-full-gha.git"
+  },
+  "author": "ElenaShcherbakova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElenaScherbakova/react-mesto-api-full-gha/issues"
+  },
+  "homepage": "https://github.com/ElenaScherbakova/react-mesto-api-full-gha#readme",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

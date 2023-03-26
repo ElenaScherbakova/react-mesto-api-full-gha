@@ -1,0 +1,13 @@
+.profile__header-line {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  max-width: 336px;
+}
+
+@media screen and  (max-width:  600px) {
+  .profile__header-line {
+    max-width: 282px;
+
+  }
+}

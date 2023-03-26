@@ -1,0 +1,13 @@
+.register {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 358px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+
+

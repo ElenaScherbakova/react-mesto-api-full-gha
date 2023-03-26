@@ -1,0 +1,6 @@
+.card__place {
+  position: relative;
+  max-height: 282px;
+  width: 100%;
+  height: 100%;
+}
