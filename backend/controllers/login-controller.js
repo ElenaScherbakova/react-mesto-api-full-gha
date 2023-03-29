@@ -15,6 +15,7 @@ const login = async (req) => {
   if (user && value) {
     return { token: jwt.sign({ _id: user._id }, SECRET) }
   }
+
   throw createError(401, "Не правильный логин или пароль")
 }
 const createUser = async ({
