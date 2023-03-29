@@ -54,9 +54,8 @@ class Api {
     }
 
 }
-const API_URL = process.env.REACT_APP_API_URL
 const api = new Api({
-    baseUrl: API_URL ?? 'http://localhost:3000',
+    baseUrl: process.env.REACT_APP_API_URL ?? 'http://localhost:3000',
     headers: {
         'Content-Type': 'application/json'
     }
