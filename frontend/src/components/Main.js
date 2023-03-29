@@ -1,6 +1,5 @@
 import profilePencilSvg from "../images/pencil.svg";
-import {useContext, useEffect, useState} from "react";
-import API from "../utils/api";
+import {useContext} from "react";
 import Card from "./Card";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 

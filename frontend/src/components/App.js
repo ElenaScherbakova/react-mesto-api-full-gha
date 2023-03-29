@@ -12,6 +12,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Register from "./Register";
 import ProtectedRouteElement from './ProtectedRoute';
 import InfoTooltip from "./InfoTooltip";
+/* eslint react-hooks/exhaustive-deps: 0 */
 
 function App() {
 
@@ -52,7 +53,7 @@ function App() {
 
     const request = (func) => {
         return func.catch( (e) => {
-            if (e == 401) {
+            if (e === 401) {
                 setCurrentUser({})
             }
             throw e
@@ -110,8 +111,6 @@ function App() {
         setMessageStatus(type)
     }
 
-    {/* закртие попапа*/
-    }
     const closeAllPopups = () => {
         setEditAvatarPopupOpen(false)
         setAddPlacePopupOpen(false)

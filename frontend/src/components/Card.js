@@ -15,7 +15,9 @@ const Card = ({ card, onCardClick, onCardLike, onCardRemove}) => {
         <div className="card">
             <div className="card__place">
                 <img className="card__photo"
-                     src={card.link} onClick={handleClick}/>
+                     alt={'фото карты'}
+                     src={card.link}
+                     onClick={handleClick}/>
                 { card.owner === _id &&
                     <button type="button"
                             className="card__basket"

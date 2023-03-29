@@ -1,10 +1,11 @@
 import mestoSvg from "../images/mesto.svg";
 import {useLocation, useNavigate} from "react-router-dom";
-import {useContext, useEffect} from "react";
+import {useContext} from "react";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
+/* eslint jsx-a11y/anchor-is-valid: 0 */
 
 const Header = ({ loggedIn, onSignOut }) => {
-    const { me, email } = useContext(CurrentUserContext)
+    const { email } = useContext(CurrentUserContext)
     const location = useLocation()
     const navigate = useNavigate()
 

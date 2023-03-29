@@ -1,4 +1,5 @@
 import {useEffect} from "react";
+/* eslint react-hooks/exhaustive-deps: 0 */
 
 function PopupWithForm({title, className, idForm, name, children, isOpen, onClose, submitButtonTitle, onSubmit }) {
     const handleEscClose = (event) => {
