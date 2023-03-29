@@ -5,8 +5,10 @@
   "scripts": {
     "install:all": "npm i && cd ./backend && npm i && cd ../frontend && npm i",
     "start": "concurrently -n Frontend,API \"npm run start:ui\" \"npm run start:api\"",
+    "dev": "concurrently -n Frontend,API \"npm run start:ui\" \"npm run dev:api\"",
     "start:ui": "cd frontend && npm start",
-    "start:api": "cd backend && pm2 start -f app.js"
+    "start:api": "cd backend && pm2 start -f app.js",
+    "dev:api": "cd backend && npm run dev"
   },
   "repository": {
     "type": "git",
