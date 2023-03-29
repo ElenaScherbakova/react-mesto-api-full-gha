@@ -6,7 +6,7 @@
     "install:all": "npm i && cd ./backend && npm i && cd ../frontend && npm i",
     "start": "concurrently -n Frontend,API \"npm run start:ui\" \"npm run start:api\"",
     "start:ui": "cd frontend && npm start",
-    "start:api": "cd backend && pm2 start app.js"
+    "start:api": "cd backend && pm2 start -f app.js"
   },
   "repository": {
     "type": "git",
