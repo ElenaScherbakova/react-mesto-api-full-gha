@@ -54,7 +54,7 @@ class Api {
     }
 
 }
-const { API_URL } = process.env
+const API_URL = process.env.API_URL
 const api = new Api({
     baseUrl: API_URL ?? 'http://localhost:3000',
     headers: {
