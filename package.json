@@ -4,7 +4,7 @@
   "description": "API and UI",
   "scripts": {
     "install:all": "npm i && cd ./backend && npm i && cd ../frontend && npm i",
-    "start": "concurrently -n Frontend, API \"npm run start:ui\" \"npm run start:api\"",
+    "start": "concurrently -n Frontend,API \"npm run start:ui\" \"npm run start:api\"",
     "start:ui": "cd frontend && npm start",
     "start:api": "cd backend && npm start"
   },
