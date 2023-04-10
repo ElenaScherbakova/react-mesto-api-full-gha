@@ -5,7 +5,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.139.126
+IP 84.201.139.126
 
 Frontend https://elenasherbakova.nomoredomains.work/
 
