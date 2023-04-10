@@ -11,9 +11,11 @@ const {
 const login = async (req) => {
   const { email, password } = req.body
   const user = await User.findOne({ email }).select("+password")
-  const value = await bcrypt.compare(password, user.password)
-  if (user && value) {
-    return { token: jwt.sign({ _id: user._id }, SECRET) }
+  if (user) {
+    const value = await bcrypt.compare(password, user.password)
+    if (value) {
+      return { token: jwt.sign({ _id: user._id }, SECRET) }
+    }
   }
 
   throw createError(401, "Не правильный логин или пароль")
