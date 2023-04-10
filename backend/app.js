@@ -24,9 +24,9 @@ connect("mongodb://127.0.0.1:27017/mestodb", {})
     app.use(cors())
     app.use(express.json())
     app.use(requestLogger)
-    app.get('/crash-test', () => {
+    app.get("/crash-test", () => {
       setTimeout(() => {
-        throw new Error('Сервер сейчас упадёт');
+        throw new Error("Сервер сейчас упадёт");
       }, 0);
     })
     app.post(
