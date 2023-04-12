@@ -9,4 +9,4 @@ IP 84.201.139.126
 
 Frontend https://elenasherbakova.nomoredomains.work/
 
-Backend https://elenasherbakova.nomoredomains.work/api/
+Backend https://elenasherbakova.nomoredomains.work/api
