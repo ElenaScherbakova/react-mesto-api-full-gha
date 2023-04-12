@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
 const createError = require("http-errors")
 
-const { NODE_ENV, JWT_SECRET: SECRET = NODE_ENV !== "production" ? "dev-secret" : null } = process.env
+const { NODE_ENV, JWT_SECRET = NODE_ENV !== "production" ? "dev-secret" : null } = process.env
 
-if (NODE_ENV === "production") {
+if (NODE_ENV === "production" && !JWT_SECRET) {
   throw new Error("JWT_SECRET отсутсвует.")
 }
 const checkToken = (req, res, next) => {
@@ -15,7 +15,7 @@ const checkToken = (req, res, next) => {
 
   if (token) {
     try {
-      req.user = jwt.verify(token, SECRET)
+      req.user = jwt.verify(token, JWT_SECRET)
       success = true
     } catch (err) {
       // Ignore
@@ -26,4 +26,4 @@ const checkToken = (req, res, next) => {
   else next(createError(401, "Необходима авторизация"))
 }
 
-module.exports = { checkToken, SECRET }
+module.exports = { checkToken, JWT_SECRET }

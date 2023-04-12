@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const createError = require("http-errors");
 const User = require("../models/user");
-const { SECRET } = require("../middlewares/auth");
+const { JWT_SECRET } = require("../middlewares/auth");
 
 const {
   http200, http201,
@@ -16,7 +16,7 @@ const login = async (req, res, next) => {
       const value = await bcrypt.compare(password, user.password)
       if (value) {
         http200(res, {
-          token: jwt.sign({ _id: user._id }, SECRET),
+          token: jwt.sign({ _id: user._id }, JWT_SECRET),
         })
         return
       }
