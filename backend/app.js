@@ -95,6 +95,13 @@ connect("mongodb://127.0.0.1:27017/mestodb", {})
         // Eslint-error: Expected to return a value at the end of arrow function  consistent-return
         return null
       }
+      // https://expressjs.com/en/guide/error-handling.html
+      // If you call next() with an error after you have started writing the response
+      // (for example, if you encounter an error while streaming the response to the client)
+      // the Express default error handler closes the connection and fails the request.
+      //
+      // So when you add a custom error handler, you must delegate to the default
+      // Express error handler, when the headers have already been sent to the client:
       return next(err)
     })
     app.listen(PORT, () => {

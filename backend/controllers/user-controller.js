@@ -2,19 +2,32 @@ const createError = require("http-errors")
 const User = require("../models/user")
 const {
   http200,
-  wrap,
 } = require("./http-responses");
 
-const findUser = async (userId, res) => {
-  const user = await User.findById(userId)
-  if (user) return http200(res, user)
-  throw createError(404, "Пользователь не найден")
+const findUser = async (userId, res, next) => {
+  try {
+    const user = await User.findById(userId)
+    if (user) {
+      http200(res, user)
+    } else {
+      next(createError(404, "Пользователь не найден"))
+    }
+  } catch (e) {
+    next(e)
+  }
 }
 
-const getMe = async (req, res) => findUser(req.user._id, res)
-const getUser = async (req, res) => findUser(req.params.userId, res)
+const getMe = async (req, res, next) => findUser(req.user._id, res, next)
+const getUser = async (req, res, next) => findUser(req.params.userId, res, next)
 
-const getUsers = () => User.find({})
+const getUsers = async (req, res, next) => {
+  try {
+    const users = await User.find({})
+    http200(res, users)
+  } catch (e) {
+    next(e)
+  }
+}
 
 const updateUserInternal = (
   id,
@@ -26,20 +39,35 @@ const updateUserInternal = (
   { returnDocument: "after", runValidators: true, context: "query" },
 )
 
-const updateUserInformation = async ({
-  body: { name, about },
-  user: { _id },
-}, res) => updateUserInternal(_id, res, { name, about })
+const updateUserInformation = async (req, res, next) => {
+  try {
+    const {
+      body: { name, about },
+      user: { _id },
+    } = req
+    const result = await updateUserInternal(_id, res, { name, about })
+    http200(res, result.toJSON())
+  } catch (e) {
+    next(e)
+  }
+}
+const updateUserAvatar = async (req, res, next) => {
+  try {
+    const {
+      body: { avatar },
+      user: { _id },
+    } = req
+    const result = await updateUserInternal(_id, res, { avatar })
+    http200(res, result)
+  } catch (e) {
+    next(e)
+  }
+}
 
-const updateUserAvatar = async ({
-  body: { avatar },
-  user: { _id },
-}, res) => updateUserInternal(_id, res, { avatar })
-
-module.exports = wrap({
+module.exports = {
   getMe,
   getUser,
   getUsers,
   updateUserInformation,
   updateUserAvatar,
-})
+}
